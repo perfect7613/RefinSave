@@ -20,7 +20,7 @@ export default function Home() {
         <p>What would saving tens of thousands of dollars do for you?</p>
         <p>Fill in the form for a zero commitment call to find out how we can do that for you.</p>
       </div>
-      <Link href='https://3g578v3yhau.typeform.com/to/POsgzOoe'>
+      <Link href='https://docs.google.com/forms/d/e/1FAIpQLSdyUrQ0MbplTcnoLU2RKzbbBU3yhDh_R6fwmBUGmotO0gDAoA/viewform?usp=sf_link'>
         <button className="flex items-center justify-center w-48 h-12 mx-auto mt-8 border-2 border-pink-500 rounded-none">
           <span className="text-pink-500 font-bold">Start Saving</span> <span className="ml-2 text-pink-500">&#8594;</span>
         </button>
@@ -64,7 +64,7 @@ export default function Home() {
           <iframe width="560" height="315" src="https://www.youtube.com/embed/BJuvWL-JSzU?si=fhQZ8TQWiSIQVeSd" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         </div>
       </div>
-      <Link href='https://3g578v3yhau.typeform.com/to/POsgzOoe'>
+      <Link href='https://docs.google.com/forms/d/e/1FAIpQLSdyUrQ0MbplTcnoLU2RKzbbBU3yhDh_R6fwmBUGmotO0gDAoA/viewform?usp=sf_link'>
         <button className="flex items-center justify-center w-48 h-12 mx-auto mt-8 border-2 border-pink-500 rounded-none">
           <span className="text-pink-500 font-bold">Start Saving</span> <span className="ml-2 text-pink-500">&#8594;</span>
         </button>

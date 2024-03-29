@@ -1,11 +1,9 @@
 "use client"
 
-import { Widget } from '@typeform/embed-react'
-
 
 const Typeform = () => {
   return (
-    <Widget id="POsgzOoe" style={{ width: '30%' }} className="hidden lg:block" />
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyUrQ0MbplTcnoLU2RKzbbBU3yhDh_R6fwmBUGmotO0gDAoA/viewform?embedded=true" width="500" height="429" className='hidden lg:block' >Loading…</iframe>
   )
 }
 
