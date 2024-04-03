@@ -53,7 +53,7 @@ export default function Home() {
       </div>
       <div className="text-center max-w-7xl py-20 lg:ml-[130px]">
         <h5 className="font-bold">Eddie is debt free in retirement and is living his dream!</h5>
-        <p className="pt-10">Retired and living happily in Darwin, Eddie had acquired a fairly good super fund from working in the railways. Willing to secure his retirement with a good investment, Eddie went to AMP bank for advice. Somewhere along the line, he realized they had advised him wrongly, and that's when he met Borrower First.</p>
+        <p className="pt-10">Retired and living happily in Darwin, Eddie had acquired a fairly good super fund from working in the railways. Willing to secure his retirement with a good investment, Eddie went to AMP bank for advice. Somewhere along the line, he realized they had advised him wrongly, and that&apos;s when he met Borrower First.</p>
         <p>While things were always abstract at the big bank, Borrower First coached him openly and helped him get the best product available then.</p>
         <p>Eddie now lives free, in a place now where the weather is good and suits his metabolism, and he is quite happy with his financial situation.</p>
         <div className="flex justify-center pt-20">
