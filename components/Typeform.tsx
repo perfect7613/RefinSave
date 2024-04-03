@@ -145,7 +145,7 @@ const CustomForm = () => {
     },
     {
       id: "entry.2034379913",
-      label: "Phone Number",
+      label: "Phone Number with Country Code",
       inputType: "number",
     },
     {

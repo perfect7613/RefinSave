@@ -145,7 +145,7 @@ const HomeForm = () => {
     },
     {
       id: "entry.2034379913",
-      label: "Phone Number",
+      label: "Phone Number with country code",
       inputType: "number",
     },
     {

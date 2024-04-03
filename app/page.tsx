@@ -75,12 +75,12 @@ export default function Home() {
       <div className="flex items-center justify-center mt-14">
         <div className="w-px h-28 bg-black"></div>
       </div>
-      <div className="w-screen flex justify-center items-center flex-col h-[700px] bg-gray-300">
+      <div className="w-screen flex justify-center items-center flex-col h-[800px] bg-gray-300">
         <p className="text-center max-w-[60rem] py-20"><span className="font-bold">Financial Disclaimer:</span> Please remember that past performance may not be indicative of future results. Different types of investments involve varying degrees of risk. Due to various factors, including changing market conditions, the content may no longer be reflective of current opinions or positions. Moreover, you should not assume that any discussion or information contained in this website serves as the receipt of, or as a substitute for, personalized investment advice from Borrower First. Please consult our financial experts for more information.</p>
-        <div className="flex flex-col items-center bg-black w-screen text-center lg:w-[1200px] h-[340px] z-50">
+        <div className="flex flex-col items-center bg-black w-screen text-center lg:w-[1200px] z-50">
           <Image src='/images/Logo2.png' alt='Refine Save' width={80} height={30} className="pt-10" />
           <p className="text-white pt-10">Let Refi N Save do the heavy lifting and negotiate with lenders to secure a great deal for you.</p>
-          <div className="text-center text-white pt-10">
+          <div className="text-center text-white pb-5 pt-10">
             <p>Contact Us:</p>
             <p>Westpoint WOTSO 17 Patrick Street Blacktown NSW 2148</p>
             <p>kiran@borrowerfirst.com.au</p>
