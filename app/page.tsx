@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
-import Typeform from "@/components/Typeform";
 import Link from "next/link";
 import Image from 'next/image'
+import CustomForm from "@/components/Typeform";
 
 export default function Home() {
   return (
@@ -14,13 +14,13 @@ export default function Home() {
       </div>
       <div className="flex justify-evenly pt-36">
           <iframe title="vimeo-player" src="https://player.vimeo.com/video/924282438?h=3308459c2e" width="500" height="360"></iframe>
-          <Typeform/>
+          <CustomForm/>
       </div>
       <div className="py-8 text-center">
         <p>What would saving tens of thousands of dollars do for you?</p>
         <p>Fill in the form for a zero commitment call to find out how we can do that for you.</p>
       </div>
-      <Link href='https://docs.google.com/forms/d/e/1FAIpQLSdyUrQ0MbplTcnoLU2RKzbbBU3yhDh_R6fwmBUGmotO0gDAoA/viewform?usp=sf_link'>
+      <Link href='/form'>
         <button className="flex items-center justify-center w-48 h-12 mx-auto mt-8 border-2 border-pink-500 rounded-none">
           <span className="text-pink-500 font-bold">Start Saving</span> <span className="ml-2 text-pink-500">&#8594;</span>
         </button>
