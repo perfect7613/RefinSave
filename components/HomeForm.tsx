@@ -233,6 +233,9 @@ const HomeForm = () => {
                   Previous
                 </button>
               )}
+              {
+                currentQuestion === 0 
+              }
               {currentQuestion < questions.length - 1 && (
                 <button type="button" onClick={handleNext} className="bg-white text-gray-500 px-4 py-2 rounded-md mr-2">
                   Next

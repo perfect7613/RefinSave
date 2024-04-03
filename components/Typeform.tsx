@@ -166,7 +166,7 @@ const CustomForm = () => {
         (firstPage && !submit)&& (
           <div className="bg-cover h-[100vh] w-[100vw] gap-4 flex flex-col lg:flex-row justify-center items-center">
               <div className="lg:mx-16 my-12 lg:my-0">
-                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="640" height="360" ></iframe>
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="640" height="360" frameborder="0" allowfullscreen></iframe>
               </div>
 
               <div className="flex flex-col justify-center items-start">
