@@ -2,19 +2,22 @@ import Header from "@/components/Header";
 import Link from "next/link";
 import Image from 'next/image'
 import CustomForm from "@/components/Typeform";
+import HomeForm from "@/components/HomeForm";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-hidden"> 
       <Header/>
       <div className="pt-[50px] max-w-7xl lg:ml-[130px]">
         <h1 className="text-2xl lg:text-6xl font-bold text-center space-x-3 space-y-8">
           <strong>How Our Client-Focused Approach Helps Home Owners <span className="text-[#FF0068]">Save HEAPS</span> On Their <span className="text-[#FF0068]">Home Loans</span>.</strong>
         </h1>
       </div>
-      <div className="flex justify-evenly pt-36">
+      <div className="flex justify-evenly">
           <iframe title="vimeo-player" src="https://player.vimeo.com/video/924282438?h=3308459c2e" width="500" height="360"></iframe>
-          <CustomForm/>
+          <div className="hidden lg:block  mr-18 mt-5">
+          <HomeForm />
+          </div>
       </div>
       <div className="py-8 text-center">
         <p>What would saving tens of thousands of dollars do for you?</p>
@@ -85,6 +88,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

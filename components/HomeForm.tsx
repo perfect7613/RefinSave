@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 
-const CustomForm = () => {
+const HomeForm = () => {
   const [submit, setSubmit] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [formData, setFormData] = useState({
@@ -158,18 +158,18 @@ const CustomForm = () => {
   const currentQuestionData = questions[currentQuestion];
 
   return (
-    <div className="contactFormWrapper text-white bg-[#730e0e] bg-cover h-[100vh] w-[100vw] flex flex-col justify-center items-center">
+    <div className="contactFormWrapper text-white bg-[#730e0e] bg-cover p-5 h-[500px] w-[400px] flex flex-col justify-center items-center">
       <div className="formheader"></div>
       <div className="formcontact">
 
       {
         (firstPage && !submit)&& (
-          <div className="bg-cover h-[100vh] w-[100vw] gap-4 flex flex-col lg:flex-row justify-center items-center">
-              <div className="lg:mx-16 my-12 lg:my-0">
-                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+          <div className="bg-cover  gap-1 flex flex-col  justify-center items-center">
+              <div className="">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="340" height="360" frameborder="0" allowfullscreen></iframe>
               </div>
 
-              <div className="flex flex-col justify-center items-start">
+              <div className="flex w-[300px] flex-col justify-center items-start">
                 <h1>Did you know that you could potentially save $100,000 on your home loan?</h1>
                 <button className="text-gray-500 my-5 font-bold bg-white rounded-sm flex justify-center items-center p-3" onClick={() => {setFirstPage(false)}}>
                   Start Saving
@@ -186,7 +186,7 @@ const CustomForm = () => {
         
         { (!submit && !firstPage) &&
         (
-          <form onSubmit={handleSubmit} target="_self">
+            <form onSubmit={handleSubmit} target="_self">
             <fieldset className="flex flex-col justify-center">
               <div className="flex flex-col ">
               <label htmlFor={currentQuestionData.id} className="my-2">
@@ -251,4 +251,4 @@ const CustomForm = () => {
   );
 };
 
-export default CustomForm;
+export default HomeForm;
