@@ -166,10 +166,10 @@ const CustomForm = () => {
         (firstPage && !submit)&& (
           <div className="bg-cover h-[100vh] w-[100vw] gap-4 flex flex-col lg:flex-row justify-center items-center">
               <div className="lg:mx-16 my-12 lg:my-0">
-                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="640" height="360" ></iframe>
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="640" height="360" className="w-[90vw] h-[360px] sm:w-[640px]" ></iframe>
               </div>
 
-              <div className="flex flex-col justify-center items-start">
+              <div className="flex flex-col justify-center items-start w-[90vw] md:w-auto">
                 <h1>Did you know that you could potentially save $100,000 on your home loan?</h1>
                 <button className="text-gray-500 my-5 font-bold bg-white rounded-sm flex justify-center items-center p-3" onClick={() => {setFirstPage(false)}}>
                   Start Saving
@@ -181,7 +181,18 @@ const CustomForm = () => {
       }
 
         {(submit && !firstPage) && (
-          <div className="afterForm">Thanks, will get back to you soon</div>
+
+           <div className="bg-cover h-[100vh] w-[100vw] gap-4 flex flex-col lg:flex-row justify-center items-center">
+              <div className="lg:mx-16 my-12 lg:my-0">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="640" height="360" className="w-[90vw] h-[360px] sm:w-[640px]" ></iframe>
+              </div>
+
+              <div className="flex flex-col justify-center text-[18px] items-start w-[90vw] mx-auto">
+                <h1 className="mx-auto">Hold your horses! Please watch this video before exiting.</h1>
+                
+              </div>
+              
+          </div>  
         ) }
         
         { (!submit && !firstPage) &&
