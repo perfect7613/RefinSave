@@ -166,7 +166,7 @@ const HomeForm = () => {
         (firstPage && !submit)&& (
           <div className="bg-cover  gap-1 flex flex-col  justify-center items-center">
               <div className="">
-                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="340" height="360" frameborder="0" allowfullscreen></iframe>
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/925286789?h=24dd8b7dd3" width="340" height="360" ></iframe>
               </div>
 
               <div className="flex w-[300px] flex-col justify-center items-start">
