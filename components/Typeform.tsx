@@ -220,7 +220,7 @@ const CustomForm = () => {
                   onChange={handleInputData(currentQuestionData.id)}
                   value={formData[currentQuestionData.id as keyof typeof formData]}
                   autoComplete="off"
-                  className="border border-gray-300 rounded-md p-2 mt-2"
+                  className="border border-gray-300 rounded-md p-2 mt-2 text-black"
                 />
               )}
               </div>
