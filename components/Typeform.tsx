@@ -158,7 +158,7 @@ const CustomForm = () => {
   const currentQuestionData = questions[currentQuestion];
 
   return (
-    <div className="contactFormWrapper text-white bg-[#730e0e] bg-cover h-[100vh] w-[100vw] flex flex-col justify-center items-center">
+    <div className="contactFormWrapper text-white bg-[#000000] bg-cover h-[100vh] w-[100vw] flex flex-col justify-center items-center">
       <div className="formheader"></div>
       <div className="formcontact">
 
