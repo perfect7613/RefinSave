@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from "react";
-
+import { useEffect } from "react";
 
 const CustomForm = () => {
   const [submit, setSubmit] = useState(false);
@@ -17,6 +17,17 @@ const CustomForm = () => {
   });
   const [firstPage, setFirstPage] = useState(true);
 
+  const [formVisible, setFormVisible] = useState(false); // Track form visibility
+
+  // Update form visibility based on conditions
+  useEffect(() => {
+    if (!firstPage && !submit) {
+      setFormVisible(true); // Show form
+    } else {
+      setFormVisible(false); // Hide form
+    }
+  }, [firstPage, submit, currentQuestion]);
+
   const handleInputData = (input: string) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -29,11 +40,17 @@ const CustomForm = () => {
   };
 
   const handleNext = () => {
+    setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    setFormVisible(true);
+    
   };
 
   const handlePrevious = () => {
+    setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion - 1);
+    setFormVisible(true);
+    
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -171,7 +188,7 @@ const CustomForm = () => {
 
               <div className="flex flex-col justify-center items-start w-[90vw] md:w-auto">
                 <h1>Did you know that you could potentially save $100,000 on your home loan?</h1>
-                <button className="text-gray-500 my-5 font-bold bg-white rounded-sm flex justify-center items-center p-3" onClick={() => {setFirstPage(false)}}>
+                <button className="text-gray-500 my-5 font-bold bg-white rounded-sm flex justify-center items-center p-3 hover:bg-gray-700 hover:text-white" onClick={() => {setFirstPage(false)}}>
                   Start Saving
                 </button>
               </div>
@@ -197,17 +214,17 @@ const CustomForm = () => {
         
         { (!submit && !firstPage) &&
         (
-          <form onSubmit={handleSubmit} target="_self">
-            <fieldset className="flex flex-col justify-center">
-              <div className="flex flex-col ">
+          <form onSubmit={handleSubmit} target="_self" className={`form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
+            <fieldset className={`flex flex-col justify-center form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
+              <div className={`flex flex-col form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
               <label htmlFor={currentQuestionData.id} className="my-2">
                 {currentQuestionData.label}
               </label>
               {currentQuestionData.options ? (
                 currentQuestionData.options.map((option) => (
                   <React.Fragment key={option.value}>
-                    <div className="border-2 border-white  my-2 p-3">
-                    <div className="flex justify-between items-center">
+                    <div className="border-2 border-white  my-2 p-3 cursor-pointer">
+                    <div className="flex justify-between items-center cursor-pointer">
                     <label className="">{option.label}</label>
                     <input
                       required
@@ -217,7 +234,7 @@ const CustomForm = () => {
                       onChange={handleInputData(currentQuestionData.id)}
                       checked={formData[currentQuestionData.id as keyof typeof formData] === option.value}
                       autoComplete="off"
-                      className="mr-2"
+                      className="mr-2 cursor-pointer"
                     />
                     </div>
                     </div>
@@ -231,26 +248,26 @@ const CustomForm = () => {
                   onChange={handleInputData(currentQuestionData.id)}
                   value={formData[currentQuestionData.id as keyof typeof formData]}
                   autoComplete="off"
-                  className="border border-gray-300 rounded-md p-2 mt-2 text-black"
+                  className={`border border-gray-300 rounded-md p-2 mt-2 text-black form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}
                 />
               )}
               </div>
             
             </fieldset>
 
-            <div className="mt-4">
+            <div className="mt-4" >
               {currentQuestion > 0 && (
-                <button type="button" onClick={handlePrevious} className="bg-white text-gray-500 px-4 py-2 rounded-md mr-2">
+                <button type="button" onClick={handlePrevious} className="bg-white text-gray-500 px-4 py-2 rounded-md mr-2 hover:bg-gray-700 hover:text-white">
                   Previous
                 </button>
               )}
               {currentQuestion < questions.length - 1 && (
-                <button type="button" onClick={handleNext} className="bg-white text-gray-500 px-4 py-2 rounded-md mr-2">
+                <button type="button" onClick={handleNext} className="bg-white text-gray-500 px-4 py-2 rounded-md mr-2 hover:bg-gray-700 hover:text-white">
                   Next
                 </button>
               )}
               {currentQuestion === questions.length - 1 && (
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-gray-700 hover:text-white">
                   Submit
                 </button>
               )}
