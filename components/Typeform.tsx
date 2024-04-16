@@ -28,6 +28,8 @@ const CustomForm = () => {
     }
   }, [firstPage, submit, currentQuestion]);
 
+  const [selectedOption, setSelectedOption] = useState("");
+
   const handleInputData = (input: string) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -37,12 +39,14 @@ const CustomForm = () => {
       ...prevState,
       [input]: value,
     }));
+    setSelectedOption(value);
   };
 
   const handleNext = () => {
     setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     setFormVisible(true);
+    setSelectedOption("");
     
   };
 
@@ -50,6 +54,7 @@ const CustomForm = () => {
     setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion - 1);
     setFormVisible(true);
+    setSelectedOption("");
     
   };
 
@@ -221,36 +226,42 @@ const CustomForm = () => {
                 {currentQuestionData.label}
               </label>
               {currentQuestionData.options ? (
-                currentQuestionData.options.map((option) => (
-                  <React.Fragment key={option.value}>
-                    <div className="border-2 border-white  my-2 p-3 cursor-pointer">
-                    <div className="flex justify-between items-center cursor-pointer">
-                    <label className="">{option.label}</label>
-                    <input
-                      required
-                      type="radio"
-                      name={currentQuestionData.id}
-                      value={option.value}
-                      onChange={handleInputData(currentQuestionData.id)}
-                      checked={formData[currentQuestionData.id as keyof typeof formData] === option.value}
-                      autoComplete="off"
-                      className="mr-2 cursor-pointer"
-                    />
-                    </div>
-                    </div>
-                  </React.Fragment>
-                ))
-              ) : (
-                <input
-                  required
-                  type={currentQuestionData.inputType}
-                  name={currentQuestionData.id}
-                  onChange={handleInputData(currentQuestionData.id)}
-                  value={formData[currentQuestionData.id as keyof typeof formData]}
-                  autoComplete="off"
-                  className={`border border-gray-300 rounded-md p-2 mt-2 text-black form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}
-                />
-              )}
+        currentQuestionData.options.map((option) => (
+          <div
+            key={option.value}
+            className={`border-2 border-white my-2 p-3 cursor-pointer ${
+              selectedOption === option.value ? 'bg-gray-700 text-white' : 'hover:bg-gray-700 hover:text-white hover:scale-105'
+            }`}
+            onClick={() => setSelectedOption(option.value)}
+          >
+            <div className="flex justify-between items-center">
+              <label>{option.label}</label>
+              <input
+                required
+                type="radio"
+                name={currentQuestionData.id}
+                value={option.value}
+                onChange={handleInputData(currentQuestionData.id)}
+                checked={formData[currentQuestionData.id as keyof typeof formData] === option.value}
+                autoComplete="off"
+                className="mr-2 cursor-pointer"
+              />
+            </div>
+          </div>
+        ))
+      ) : (
+        <input
+          required
+          type={currentQuestionData.inputType}
+          name={currentQuestionData.id}
+          onChange={handleInputData(currentQuestionData.id)}
+          value={formData[currentQuestionData.id as keyof typeof formData]}
+          autoComplete="off"
+          className={`border border-gray-300 rounded-md p-2 mt-2 text-black form-container transition-transform duration-700 ${
+            formVisible ? '-translate-y-100' : 'translate-y-full'
+          }`}
+        />
+      )}
               </div>
             
             </fieldset>

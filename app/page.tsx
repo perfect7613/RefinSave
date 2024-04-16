@@ -19,8 +19,8 @@ export default function Home() {
         <p>Fill in the form for a zero commitment call to find out how we can do that for you.</p>
       </div>
       <Link href='/form'>
-        <button className="flex items-center justify-center w-48 h-12 mx-auto mt-8 border-2 border-pink-500 rounded-none">
-          <span className="text-pink-500 font-bold">Start Saving</span> <span className="ml-2 text-pink-500">&#8594;</span>
+        <button className="flex items-center justify-center text-pink-500  w-48 h-12 mx-auto mt-8 border-2 border-pink-500 rounded-none hover:bg-pink-500 hover:border-2 hover:border-white hover:text-white">
+          <span className="font-bold">Start Saving</span> <span className="ml-2">&#8594;</span>
         </button>
       </Link>
       <div className="flex items-center justify-center mt-8">
