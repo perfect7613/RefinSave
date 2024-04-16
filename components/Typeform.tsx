@@ -5,6 +5,7 @@ import { useEffect } from "react";
 const CustomForm = () => {
   const [submit, setSubmit] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     "entry.746429476": "",
     "entry.1436654493": "",
@@ -43,19 +44,31 @@ const CustomForm = () => {
   };
 
   const handleNext = () => {
+    
+    if (formData[currentQuestionData.id as keyof typeof formData] === "") {
+      setErrorMessage("Please give an answer before proceeding.");
+      return; // Return early if no option is selected
+    }
+  
     setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion + 1);
     setFormVisible(true);
     setSelectedOption("");
+    setErrorMessage("");
     
   };
 
   const handlePrevious = () => {
+    if (formData[currentQuestionData.id as keyof typeof formData] === "") {
+      setErrorMessage("Please give an answer before proceeding.");
+      return; // Return early if no option is selected
+    }
+  
     setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion - 1);
     setFormVisible(true);
-     setSelectedOption("");
-    
+    setSelectedOption("");
+    setErrorMessage(""); 
   };
 
   const handleDivClick = (optionValue: string) => () => {
@@ -234,11 +247,19 @@ const CustomForm = () => {
           <form onSubmit={handleSubmit} target="_self" className={`form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
             <fieldset className={`flex flex-col justify-center form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
               <div className={`flex flex-col form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
+              
+              <label className="text-red-500">
+                {
+                  (errorMessage !== "") && `* ${errorMessage}` 
+                }
+              </label>
+              
               <label  className="my-2 font-extrabold">
                 {
                   currentQuestion<4 ? (`Question ${currentQuestion+1}`) : ("")
                 }
               </label>
+              
               <label htmlFor={currentQuestionData.id} className="my-2">
                 {currentQuestionData.label}
               </label>
