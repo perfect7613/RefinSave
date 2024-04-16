@@ -234,6 +234,11 @@ const CustomForm = () => {
           <form onSubmit={handleSubmit} target="_self" className={`form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
             <fieldset className={`flex flex-col justify-center form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
               <div className={`flex flex-col form-container transition-transform duration-700 ${formVisible ? "-translate-y-100" : "translate-y-full"}`}>
+              <label  className="my-2 font-extrabold">
+                {
+                  currentQuestion<4 ? (`Question ${currentQuestion+1}`) : ("")
+                }
+              </label>
               <label htmlFor={currentQuestionData.id} className="my-2">
                 {currentQuestionData.label}
               </label>
