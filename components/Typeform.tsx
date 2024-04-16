@@ -54,8 +54,15 @@ const CustomForm = () => {
     setFormVisible(false);
     setCurrentQuestion((prevQuestion) => prevQuestion - 1);
     setFormVisible(true);
-    setSelectedOption("");
+     setSelectedOption("");
     
+  };
+
+  const handleDivClick = (optionValue: any) => () => {
+    const radioBtn = document.getElementById(`radio_${optionValue}`);
+    if (radioBtn) {
+      radioBtn.click(); // Programmatically click the radio button
+    }
   };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -232,16 +239,17 @@ const CustomForm = () => {
             className={`border-2 border-white my-2 p-3 cursor-pointer ${
               selectedOption === option.value ? 'bg-gray-700 text-white' : 'hover:bg-gray-700 hover:text-white hover:scale-105'
             }`}
-            onClick={() => setSelectedOption(option.value)}
+            onClick={handleDivClick(option.value)} // Call handleDivClick on div click
           >
             <div className="flex justify-between items-center">
               <label>{option.label}</label>
               <input
                 required
                 type="radio"
+                id={`radio_${option.value}`}
                 name={currentQuestionData.id}
                 value={option.value}
-                onChange={handleInputData(currentQuestionData.id)}
+                onChange={handleInputData(currentQuestionData.id, option.value)}
                 checked={formData[currentQuestionData.id as keyof typeof formData] === option.value}
                 autoComplete="off"
                 className="mr-2 cursor-pointer"
