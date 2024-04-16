@@ -58,10 +58,13 @@ const CustomForm = () => {
     
   };
 
-  const handleDivClick = (optionValue: any) => () => {
-    const radioBtn = document.getElementById(`radio_${optionValue}`);
+  const handleDivClick = (optionValue: string) => () => {
+    setSelectedOption(optionValue);
+  
+    // Programmatically find and click the radio button
+    const radioBtn = document.querySelector(`input[name="${currentQuestionData.id}"][value="${optionValue}"]`) as HTMLInputElement;
     if (radioBtn) {
-      radioBtn.click(); // Programmatically click the radio button
+      radioBtn.click();
     }
   };
 
@@ -186,6 +189,8 @@ const CustomForm = () => {
 
   const currentQuestionData = questions[currentQuestion];
 
+  
+
   return (
     <div className="contactFormWrapper text-white bg-[#000000] bg-cover h-[100vh] w-[100vw] flex flex-col justify-center items-center">
       <div className="formheader"></div>
@@ -239,6 +244,7 @@ const CustomForm = () => {
             className={`border-2 border-white my-2 p-3 cursor-pointer ${
               selectedOption === option.value ? 'bg-gray-700 text-white' : 'hover:bg-gray-700 hover:text-white hover:scale-105'
             }`}
+             onClick={handleDivClick(option.value)}
            
           >
             <div className="flex justify-between items-center">
