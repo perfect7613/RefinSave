@@ -239,17 +239,16 @@ const CustomForm = () => {
             className={`border-2 border-white my-2 p-3 cursor-pointer ${
               selectedOption === option.value ? 'bg-gray-700 text-white' : 'hover:bg-gray-700 hover:text-white hover:scale-105'
             }`}
-            onClick={handleDivClick(option.value)} // Call handleDivClick on div click
+           
           >
             <div className="flex justify-between items-center">
               <label>{option.label}</label>
               <input
                 required
                 type="radio"
-                id={`radio_${option.value}`}
                 name={currentQuestionData.id}
                 value={option.value}
-                onChange={handleInputData(currentQuestionData.id, option.value)}
+                onChange={handleInputData(currentQuestionData.id)}
                 checked={formData[currentQuestionData.id as keyof typeof formData] === option.value}
                 autoComplete="off"
                 className="mr-2 cursor-pointer"
