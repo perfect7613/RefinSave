@@ -9,7 +9,7 @@ const Header = () => {
     <header className='w-screen py-2 flex justify-center bg-black'>
       <div className='pt-2 mr-4 cursor-pointer' >
         <a href='https://www.refinsave.com.au' target='_blank' rel='noopener noreferrer'>
-          <Image src='/images/Logo.png' alt='Refine Save' width={210} height={50} />
+          <Image src='/images/logo3.png' alt='Refine Save' width={210} height={50} />
         </a>
       </div>
     </header>
